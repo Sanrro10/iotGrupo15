@@ -18,13 +18,12 @@ _A continuación, se explican los pasos a seguir para la correcta utilización d
 Para el funcionamiento correcto de la aplicación, es necesario disponer de:
   - Dos Raspberry Pi (https://www.raspberrypi.org/)
   - Dos Grove hat (https://wiki.seeedstudio.com/Grove_Base_Kit_for_Raspberry_Pi/)
-  - Dos Tarjetas NFC
-  - Un lector de tarjetas NFC
+  - Dos Botones (https://wiki.seeedstudio.com/Grove-Button/)
   - Una Led Bar (https://wiki.seeedstudio.com/Grove-LED_Bar/)
-  - Dos magnetic switch (https://wiki.seeedstudio.com/Grove-Magnetic_Switch/)
+  - Un magnetic switch (https://wiki.seeedstudio.com/Grove-Magnetic_Switch/)
   - Un buzzer (https://wiki.seeedstudio.com/Grove-Buzzer/)
   - Imán electrónico (https://wiki.seeedstudio.com/Grove-Electromagnet/
-  - 5 cables PWM
+  - Cables PWM
 
 ### Instalación 🔧
 
@@ -39,10 +38,10 @@ _Clonar repositorio_
   git push -u origin master
   ```
   
-En una Raspberry, que hará de sensor, tendremos conectados el lector NFC, y los magnetic switch e instalaremos el código correspondiente al sensor. 
+En una Raspberry, que hará de sensor, tendremos conectados un botón, el imán electrónico y un magnetic switch e instalaremos el código correspondiente al sensor. 
 En la otra, el avisador, conectaremos el resto de componentes e instalaremos el código de la carpeta avisador.
 Ejecutamos el código de ambas y las conectamos por bluetooth.
-
+En una simulación más cercana a una aplicación real de este proyecto, ambos programas estarán en crontab puesto que pertenecerian a dispositivos sin interfaces dedicados exclusivamente a este programa. 
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
