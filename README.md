@@ -2,6 +2,9 @@
 
 Esta aplicación será una demo del sistema de almacenamiento y descontaminación de comida para personas vulnerables que describimos en clase.
 
+## Demostración
+https://drive.google.com/file/d/1r2ZgNK8pbhrRlo9dHNOduqjxvEqhjtWe/view?usp=sharing
+
 ## Procedimiento
 
 La raspberry con función de sensor, detectará el pulso de un botón para simular que se abren las puertas del frigorífico o armario (se simulará mediante un electromagnet y un magnetic switch). En cuanto se cierren las puertas comenzará un contador de 5 segundos (epara el correcto uso en la vida real habría que cambiar este parámetro a 48 horas).
