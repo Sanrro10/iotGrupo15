@@ -4,9 +4,9 @@ Esta aplicación será una demo del sistema de almacenamiento y descontaminació
 
 ## Procedimiento
 
-La raspberry con función de sensor, detectará una tarjeta NFC para simular que se abren las puertas del frigorífico o armario (se simulará con un objeto metálico y el imán junto a los dos magnetic switches). En cuanto se cierren las puertas comenzará un contador de 48 segundos (epara el correcto uso en la vida real habría que cambiar este parámetro a 48 horas).
-Cuando se complete este se enviará una señal a la raspberry avisadora, que irá mostrando el paso del tiempo en la ledbar y cuando se complete, sonará un pitido. A partir de este momento, se podrá abrir con la segunda tarjeta NFC.
-La raspberry sensor recoje datos y los manda a una BD en Grafana.
+La raspberry con función de sensor, detectará el pulso de un botón para simular que se abren las puertas del frigorífico o armario (se simulará mediante un electromagnet y un magnetic switch). En cuanto se cierren las puertas comenzará un contador de 5 segundos (epara el correcto uso en la vida real habría que cambiar este parámetro a 48 horas).
+Cuando se complete este se enviará una señal a la raspberry avisadora, que cuando se complete, sonará un pitido. A partir de este momento, se podrá abrir con el botón en el avisador.
+La raspberry sensor recoje datos y los manda a una InfluxBD en Grafana.
 
 ## Comenzando 🚀
 
@@ -24,7 +24,17 @@ Para el funcionamiento correcto de la aplicación, es necesario disponer de:
   - Un buzzer (https://wiki.seeedstudio.com/Grove-Buzzer/)
   - Imán electrónico (https://wiki.seeedstudio.com/Grove-Electromagnet/
   - Cables PWM
-
+Este proyecto depende de las siguientes librerias y sus dependencias:
+  AMBAS RASPIS:
+    - [Grove]: https://github.com/Seeed-Studio/grove.py
+    - [Pybluez]: https://github.com/pybluez/pybluez
+  TAN SOLO EL FRIGORIFICO:
+   - [Grafana]: https://github.com/grafana/grafana
+   - [Influxdb]: https://github.com/influxdata/influxdb
+Además,  habrá que vincular las Raspberrys a usar mediante bluetooth como se presenta a continuación:
+  https://bluedot.readthedocs.io/en/latest/pairpipi.html
+ 
+  
 ### Instalación 🔧
 
 _Clonar repositorio_
@@ -38,18 +48,18 @@ _Clonar repositorio_
   git push -u origin master
   ```
   
-En una Raspberry, que hará de sensor, tendremos conectados un botón, el imán electrónico y un magnetic switch e instalaremos el código correspondiente al sensor. 
-En la otra, el avisador, conectaremos el resto de componentes e instalaremos el código de la carpeta avisador.
+En una Raspberry, que hará de sensor, tendremos conectados un botón, el imán electrónico y un magnetic switch e instalaremos el código correspondiente al sensor: frigo.py. 
+En la otra, el avisador, conectaremos el resto de componentes e instalaremos el código de la carpeta avisador: avisador.py.
 Ejecutamos el código de ambas y las conectamos por bluetooth.
-En una simulación más cercana a una aplicación real de este proyecto, ambos programas estarán en crontab puesto que pertenecerian a dispositivos sin interfaces dedicados exclusivamente a este programa. 
+En una simulación más cercana a una aplicación real de este proyecto, ambos programas estarán en crontab puesto que pertenecerian a dispositivos sin interfaces dedicados exclusivamente a este programa, para esto abrimos crontab con el comando crontab -e  y en el bloque final escribimos el comando @reboot python3 ruta-del-archivo.
+
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 * [Python](https://es.python.org) - Lenguaje de programación.
 * [JupyterLab](https://jupyter.org) - Framework
-* [Log4j](https://logging.apache.org/log4j/2.x/) - Logger
-* [Travis](https://travis-ci.org/) - Tester e implementador
+
 
 
 ## Autores ✒️
