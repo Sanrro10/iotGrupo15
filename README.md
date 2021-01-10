@@ -47,7 +47,15 @@ _Clonar repositorio_
   git remote add origin https://github.com/Sanrro10/iotGrupo15.git
   git push -u origin master
   ```
-  
+ _Instalación física de los componentes_
+  Componentes Raspberry frigorifico:
+    Electromagnet: PIN 12
+    Magnetic Switch: PIN 18
+    Botón: PIN 5
+   Componentes Raspberry avisador
+    Buzzer: PIN 12
+    Botón: PIN 5
+    
 En una Raspberry, que hará de sensor, tendremos conectados un botón, el imán electrónico y un magnetic switch e instalaremos el código correspondiente al sensor: frigo.py. 
 En la otra, el avisador, conectaremos el resto de componentes e instalaremos el código de la carpeta avisador: avisador.py.
 Ejecutamos el código de ambas y las conectamos por bluetooth.
